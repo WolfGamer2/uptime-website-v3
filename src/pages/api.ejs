@@ -1,0 +1,118 @@
+<%- include('parts/beta_head', {bot, user, path}) %>
+      <div class="d-flex flex-column flex-root">
+         <div class="page d-flex flex-row flex-column-fluid">
+<%- include('parts/beta_aside', {bot, user, path}) %>
+               <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+                  <div class="toolbar" id="kt_toolbar">
+                     <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+                        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                           <h1 class="text-dark fw-bolder my-1 fs-2">API</h1>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="container">
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_connected" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Overview</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_connected_accounts" class="collapse show">
+                           <div class="card-body border-top p-9">
+										<div class="row mb-10">
+											<div class="col-md-6 pb-10 pb-lg-0">
+												<h2 class="fw-boldest">What is API?</h2>
+												<p class="fs-4 fw-bold text-gray-600 py-2">Apptime API is the best service to add monitors to your own apps for Free without going to the site.</p>
+												<a href="javascript:void(0)" style="cursor:not-allowed" class="btn btn-light fw-boldest">Get Started</a>
+											</div>
+											<div class="col-md-6">
+												<h2 class="fw-boldest">Developer Tools</h2>
+												<p class="fs-4 fw-bold text-gray-600 py-2">Where to use: <br>Discord Bots, Websites, 3th Party API Services and more...</p>
+												<a href="javascript:void(0)" style="cursor:not-allowed" class="btn btn-light fw-boldest">Create API Key</a>
+											</div>
+										</div>
+										<div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-109 p-6">
+											<span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+													<path d="M18.5,8 C17.1192881,8 16,6.88071187 16,5.5 C16,4.11928813 17.1192881,3 18.5,3 C19.8807119,3 21,4.11928813 21,5.5 C21,6.88071187 19.8807119,8 18.5,8 Z M18.5,21 C17.1192881,21 16,19.8807119 16,18.5 C16,17.1192881 17.1192881,16 18.5,16 C19.8807119,16 21,17.1192881 21,18.5 C21,19.8807119 19.8807119,21 18.5,21 Z M5.5,21 C4.11928813,21 3,19.8807119 3,18.5 C3,17.1192881 4.11928813,16 5.5,16 C6.88071187,16 8,17.1192881 8,18.5 C8,19.8807119 6.88071187,21 5.5,21 Z" fill="#000000" opacity="0.3" />
+													<path d="M5.5,8 C4.11928813,8 3,6.88071187 3,5.5 C3,4.11928813 4.11928813,3 5.5,3 C6.88071187,3 8,4.11928813 8,5.5 C8,6.88071187 6.88071187,8 5.5,8 Z M11,4 L13,4 C13.5522847,4 14,4.44771525 14,5 C14,5.55228475 13.5522847,6 13,6 L11,6 C10.4477153,6 10,5.55228475 10,5 C10,4.44771525 10.4477153,4 11,4 Z M11,18 L13,18 C13.5522847,18 14,18.4477153 14,19 C14,19.5522847 13.5522847,20 13,20 L11,20 C10.4477153,20 10,19.5522847 10,19 C10,18.4477153 10.4477153,18 11,18 Z M5,10 C5.55228475,10 6,10.4477153 6,11 L6,13 C6,13.5522847 5.55228475,14 5,14 C4.44771525,14 4,13.5522847 4,13 L4,11 C4,10.4477153 4.44771525,10 5,10 Z M19,10 C19.5522847,10 20,10.4477153 20,11 L20,13 C20,13.5522847 19.5522847,14 19,14 C18.4477153,14 18,13.5522847 18,13 L18,11 C18,10.4477153 18.4477153,10 19,10 Z" fill="#000000" />
+												</svg>
+											</span>
+											<div class="d-flex flex-stack flex-grow-1">
+												<div class="fw-bold">
+													<div class="fs-6 text-gray-600">API for Developers is now in Beta version, Stay on Hold.
+													<a href="/discord" target="_blank">Learn More</a></div>
+												</div>
+											</div>
+										</div>
+									</div>
+                           </div>
+                        </div>
+                     <div class="card" id="kt_account_settings_deactivate" data-kt-scroll-offset="{default: 100, md: 125}">
+                      <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+                         <div class="card-title m-0">
+                            <h3 class="fw-boldest m-0">Keys <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="These Keys are for testing, and cannot be used by anyone other than Staffs."></i></h3>
+                         </div>
+                      </div>
+                      <div id="kt_account_deactivate" class="collapse show">
+                         <form>
+                            <div class="card-body border-top p-0">
+										<div class="table-responsive">
+											<table class="table table-flush align-middle table-row-bordered table-row-solid gy-4" id="kt_api_keys_table">
+												<thead class="border-bottom border-gray-200 fs-5 fw-bold bg-lighten">
+													<tr>
+														<th class="w-250px min-w-175px ps-9">Name</th>
+														<th class="w-275px min-w-250px px-0">Key</th>
+														<th class="w-125px min-w-125px"></th>
+														<th class="min-w-125px min-w-125px">Created at</th>
+														<th class="min-w-125px">Status</th>
+														<th class="w-100px"></th>
+													</tr>
+												</thead>
+												<tbody class="fs-5 fw-bold text-gray-600">
+													<tr>
+														<td class="ps-9">Test App</td>
+														<td data-bs-target="license" class="ps-0">2e34c207-4933-428a-b4a4</td>
+														<td>
+															<button class="btn btn-active-color-primary btn-icon btn-sm btn-outline-light">
+																<span class="svg-icon">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M13.9466 0.215088H4.45502C3.44455 0.215088 2.62251 1.0396 2.62251 2.05311V2.62219H2.04736C1.03688 2.62219 0.214844 3.44671 0.214844 4.46078V13.9469C0.214844 14.9605 1.03688 15.785 2.04736 15.785H11.5393C12.553 15.785 13.3776 14.9605 13.3776 13.9469V13.3779H13.9466C14.9604 13.3779 15.7852 12.5534 15.7852 11.5393V2.05306C15.7852 1.0396 14.9604 0.215088 13.9466 0.215088ZM12.2526 13.9469C12.2526 14.3402 11.9326 14.6599 11.5393 14.6599H2.04736C1.65732 14.6599 1.33984 14.3402 1.33984 13.9469V4.46073C1.33984 4.06743 1.65738 3.74714 2.04736 3.74714H3.18501H11.5393C11.9326 3.74714 12.2526 4.06737 12.2526 4.46073V12.8153V13.9469ZM14.6602 11.5392C14.6602 11.9325 14.3402 12.2528 13.9466 12.2528H13.3775V4.46073C13.3775 3.44671 12.553 2.62214 11.5392 2.62214H3.74746V2.05306C3.74746 1.65976 4.06499 1.34003 4.45497 1.34003H13.9466C14.3402 1.34003 14.6602 1.65976 14.6602 2.05306V11.5392Z" fill="#B5B5C3" />
+																	</svg>
+																</span>
+															</button>
+														</td>
+														<td>Apr 03, 2016</td>
+														<td>
+															<span class="badge badge-light-success fs-7 fw-bold">Active</span>
+														</td>
+														<td class="pe-9">
+															<div class="w-100px position-relative">
+																<select class="form-select form-select-sm form-select-solid" data-control="select2" data-placeholder="Actions" data-hide-search="true">
+																	<option value=""></option>
+																	<option value="2">Full View</option>
+																	<option value="3">Edit</option>
+																	<option value="4">Delete</option>
+																	<option value="6">Report Err</option>
+																	<option value="7">Copy Key</option>
+																</select>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+                            </div>
+                         </form>
+                      </div>
+                   </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <br>
+   </body>
+</html>

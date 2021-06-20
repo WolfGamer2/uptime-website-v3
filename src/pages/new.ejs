@@ -1,0 +1,67 @@
+<%- include('parts/beta_head', {bot, user, path}) %>
+      <div class="d-flex flex-column flex-root">
+         <div class="page d-flex flex-row flex-column-fluid">
+<%- include('parts/beta_aside', {bot, user, path}) %>
+               <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+                  <div class="toolbar" id="kt_toolbar">
+                     <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+                        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                           <h1 class="text-dark fw-bolder my-1 fs-2">New Monitor</h1>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="container">
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_info" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_basic_info" aria-expanded="true" aria-controls="kt_account_basic_info">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Add Monitor</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_basic_info" class="collapse show">
+                           <form method="POST" action="/monitors/new">
+                              <div class="card-body border-top p-9">
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">Name</label>
+                                    <div class="col-lg-8 fv-row">
+                                       <input autocomplete="off" type="text" type="text" minLength="4" maxLength="25" name="linkname" id="linkname" placeholder="Asuna" class="form-control form-control-lg form-control-solid" required="" />
+                                    </div>
+                                 </div>
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Image</label>
+                                    <div class="col-lg-8 fv-row">
+                                       <input autocomplete="off" type="url" name="linkimage" id="linkimage" placeholder="https://i.imgur.com/123" class="form-control form-control-lg form-control-solid" />
+                                    </div>
+                                 </div>
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">URL</label>
+                                    <div class="col-lg-8 fv-row">
+                                       <input autocomplete="off" type="url" name="link" id="link" placeholder="https://" class="form-control form-control-lg form-control-solid" required=""/>
+                                    </div>
+                                 </div>
+                                 <div class="row mb-0">
+                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">Contract Acceptance</label>
+                                    <div class="col-lg-8 d-flex align-items-center">
+                                       <div class="form-check form-check-solid form-switch fv-row">
+                                          <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" checked="checked" disabled="" required="" />
+                                          <label class="form-check-label" for="allowmarketing"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                 <button onclick="document.location.reload(true);" type="reset" class="btn btn-white btn-active-light-primary me-2">Discard</button>
+                                 <button type="submit" class="btn btn-primary" id="kt_account_basic_info_submit">Add Monitor</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <br>
+   </body>
+</html>

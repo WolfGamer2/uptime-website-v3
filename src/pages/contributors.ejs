@@ -1,0 +1,130 @@
+<%- include('parts/beta_head', {bot, user, path}) %>
+      <div class="d-flex flex-column flex-root">
+         <div class="page d-flex flex-row flex-column-fluid">
+<%- include('parts/beta_aside', {bot, user, path}) %>
+               <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+                  <div class="toolbar" id="kt_toolbar">
+                     <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+                        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                           <h1 class="text-dark fw-bolder my-1 fs-2">Contributors</h1>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="container">
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_connected" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Staff</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_connected_accounts" class="collapse show">
+                           <div class="card-body border-top p-9">
+                           <div class="row">
+														<a href="https://cenap.js.org" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+                                <img draggable="false" src="https://discord.com/assets/e328cbaba5658ae0f002fadbddbf04d0.svg">
+																<img draggable="false" src="<%=bot.users.get("471783967167741964").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Cenap</span>
+                                <span class="badge badge-light">Project Leader</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://eleven.js.org" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="<%=bot.users.get("354343248698802187").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Eleven</span>
+                                <span class="badge badge-light">Project Manager</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://lyertia.me" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="<%=bot.users.get("693501893778997290").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Lyertia</span>
+																<span class="badge badge-light">Administrator</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+                            </div>
+                           </div>
+                        </div>
+                     </div>
+ <div class="card mb-5 mb-xl-10" id="kt_account_settings_info" data-kt-scroll-offset="{default: 100, md: 125}">
+	<div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_basic_info" aria-expanded="true" aria-controls="kt_account_basic_info">
+	   <div class="card-title m-0">
+		  <h3 class="fw-boldest m-0">Supporters</h3>
+	   </div>
+	</div>
+	<div id="kt_account_basic_info" class="collapse show">
+		  <div class="card-body border-top p-9">
+<div class="row">
+														<a href="https://eleven.js.org" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="<%=bot.users.get("689169122604744833").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Eleven 2</span>
+                                <span class="badge badge-light">Development</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://discord.com/users/738841340108079114" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="<%=bot.users.get("738841340108079114").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Esta</span>
+																<span class="badge badge-light">Development</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://discord.com/users/672412784633315339" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="https://cdn.discordapp.com/avatars/672412784633315339/576ada662b88195e810ec2b1bf43d55b.png?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">WolfBlitzerTR25</span>
+                                <span class="badge badge-light">Development</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://cwkhan.xyz" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="<%=bot.users.get("682981714523586606").avatarURL%>?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Cw Khan</span>
+                                <span class="badge badge-light">Development</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+														<a href="https://discord.com/users/397692057361055756" target="_blank" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 text-center items-center" data-kt-search-category="users">
+															<div class="symbol symbol-30px me-4">
+																<img draggable="false" src="https://i.ibb.co/7CcvKPf/user.png?size=2048" alt="" />
+															</div>
+															<div class="fw-bold">
+																<span class="fs-6 text-gray-800 me-2">Captain</span>
+                                <span class="badge badge-light">Development</span>
+                                <span style="margin-left:7px" class="online ml-3" alt="online" data-bs-toggle="tooltip" title="Online"></span>
+															</div>
+														</a>
+                            </div>
+		  </div>
+	</div>
+ </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <br>
+   </body>
+</html>

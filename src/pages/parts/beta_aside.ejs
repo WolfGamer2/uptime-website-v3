@@ -1,0 +1,145 @@
+            <div id="kt_aside" class="aside aside-default bg-white aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+               <div class="aside-logo flex-column-auto pt-9 pb-5" id="kt_aside_logo">
+                  <a href="/">
+                  <img draggable="false" width="220" alt="Logo" src="https://i.ibb.co/ZN0pK50/Apptime-new-Branding-dash.png" class="max-h-50px logo-default" />
+                  <img draggable="false" alt="Logo" src="https://i.ibb.co/ZN0pK50/Apptime-new-Branding-dash.png" class="max-h-50px logo-minimize" />
+                  </a>
+               </div>
+               <div class="aside-menu flex-column-fluid">
+                  <div class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5 my-5 mt-lg-2 mb-lg-0" id="kt_aside_menu" data-kt-menu="true">
+                     <div class="menu-fit hover-scroll-y me-lg-n5 pe-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="20px" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer">
+                        <div class="menu-item">
+                           <div class="menu-content">
+                              <span class="fw-bold text-muted text-uppercase fs-7">General</span>
+                           </div>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/account">
+                           <span class="menu-title">Account</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/dashboard">
+                           <span class="menu-title">Dashboard</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/monitors/new">
+                           <span class="menu-title">New Monitor</span>
+                           </a>
+                        </div>
+                        <br>
+                        <div class="menu-item">
+                           <div class="menu-content">
+                              <span class="fw-bold text-muted text-uppercase fs-7">Community & Company</span>
+                           </div>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/api?s=beta">
+                           <span class="menu-title">API for Developers</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/branding">
+                           <span class="menu-title">Branding</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/contributors">
+                           <span class="menu-title">Contributors</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/partners">
+                           <span class="menu-title">Partners</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="javascript:void(0)">
+                           <span class="menu-title">Status Pages</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/status">
+                           <span class="menu-title">System Status <%if(bot.ping > 300) {%><span style="margin-left:7px" class="dnd" data-bs-toggle="tooltip" title="System Low Performance"></span><% } else { %><span style="margin-left:7px" class="online" data-bs-toggle="tooltip" title="All Systems Operational"></span><% } %></span>
+                           </a>
+                        </div>
+                        <br>
+                        <div class="menu-item">
+                           <div class="menu-content">
+                              <span class="fw-bold text-muted text-uppercase fs-7">Legal</span>
+                           </div>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/legal/gdpr" target="_blank">
+                           <span class="menu-title">GDPR</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/legal/privacy" target="_blank">
+                           <span class="menu-title">Privacy Policy</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/legal/tos" target="_blank">
+                           <span class="menu-title">Terms of Service</span>
+                           </a>
+                        </div>
+                        <br>
+                        <div class="menu-item">
+                           <div class="menu-content">
+                              <span class="fw-bold text-muted text-uppercase fs-7">Support & Contact</span>
+                           </div>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="/discord" target="_blank">
+                           <span class="menu-title">Discord Server</span>
+                           </a>
+                        </div>
+                        <div class="menu-item">
+                           <a class="menu-link" href="mailto:team@apptime.tech" target="_blank">
+                           <span class="menu-title">Send Mail</span>
+                           </a>
+                        </div>
+                        <br><br>
+                        <img draggable="false" width="218" src="https://cdn.apptime.tech/aside_aw.png?size=2048">
+                     </div>
+                  </div>
+               </div>
+               <div class="aside-footer flex-column-auto" id="kt_aside_footer"></div>
+            </div>
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+               <div id="kt_header" class="header">
+                  <div class="container-fluid d-flex align-items-stretch justify-content-between">
+                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                        <a href="/" class="d-lg-none">
+                        <img draggable="false" alt="Logo" src="https://i.ibb.co/MsbHTs1/Apptime-new-Branding-dot.png" class="mh-40px" />
+                        </a>
+						<div class="d-flex align-items-center d-lg-none ms-1 ms-lg-3">
+							<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_aside_toggle">
+							   <span class="svg-icon svg-icon-2x">
+								  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+									 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<rect x="0" y="0" width="24" height="24" />
+										<rect fill="#000000" x="4" y="5" width="16" height="3" rx="1.5" />
+										<path d="M5.5,15 L18.5,15 C19.3284271,15 20,15.6715729 20,16.5 C20,17.3284271 19.3284271,18 18.5,18 L5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 Z M5.5,10 L18.5,10 C19.3284271,10 20,10.6715729 20,11.5 C20,12.3284271 19.3284271,13 18.5,13 L5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z" fill="#000000" opacity="0.3" />
+									 </g>
+								  </svg>
+							   </span>
+							</div>
+						 </div>
+                     </div>
+                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+                        <div class="d-flex align-items-stretch">
+                        </div>
+                        <div class="d-flex align-items-stretch flex-shrink-0">
+                           <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                              <button onclick="location.href='/monitors/new'" style="margin-right:20px" class="btn btn-light fw-boldest px-6">New Monitor</button>
+                              <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
+                                 <img onclick="location.href='/account'" alt="Pic" style="object-fit: cover" draggable="false" src="<%=ly.fetch(`account.${user.id}.avatar`) || "https://i.ibb.co/7CcvKPf/user.png"%>?size=2048" onerror="this.onerror=null;this.src='https://i.ibb.co/7CcvKPf/user.png'" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>

@@ -1,0 +1,298 @@
+<%- include('parts/beta_head', {bot, user, path}) %>
+      <div class="d-flex flex-column flex-root">
+         <div class="page d-flex flex-row flex-column-fluid">
+<%- include('parts/beta_aside', {bot, user, path}) %>
+               <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+                  <div class="toolbar" id="kt_toolbar">
+                     <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+                        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                           <h1 class="text-dark fw-bolder my-1 fs-2">Account</h1>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="container">
+                  <% if(ly.fetch(`beta.${user.id}.status`)) { %>
+                     <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed rounded p-6 mb-12">
+                        <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                              <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+                              <rect fill="#000000" x="11" y="7" width="2" height="8" rx="1" />
+                              <rect fill="#000000" x="11" y="16" width="2" height="2" rx="1" />
+                           </svg>
+                        </span>
+                        <div class="d-flex flex-stack flex-grow-1">
+                           <div class="fw-bold">
+                              <h4 class="text-gray-800 fw-bolder">Beta Mode opened</h4>
+                              <div class="fs-6 text-gray-600">You may see errors because you are in beta mode! Please let us know about it.
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <% } %>
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_overview" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_overview">
+                           <div class="card-title">
+                              <h3 class="fw-boldest m-0">Overview</h3>
+                           </div>
+                        </div>
+                        <script src="https://preview.keenthemes.com/craft/assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
+                        <div id="kt_account_overview" class="collapse show">
+                           <div class="card-body border-top p-9">
+                              <div class="d-flex align-items-start flex-wrap">
+                                 <div class="d-flex flex-wrap">
+                                    <div class="symbol symbol-125px mb-7 me-7 position-relative">
+                                       <img draggable="false" style="object-fit: cover" draggable="false" src="<%=ly.fetch(`account.${user.id}.avatar`) || "https://i.ibb.co/7CcvKPf/user.png"%>?size=2048" onerror="this.onerror=null;this.src='https://i.ibb.co/7CcvKPf/user.png'" alt="image" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                       <div class="fs-2 fw-boldest mb-1"><%=ly.fetch(`account.${user.id}.name`) || "Anonymous"%> (<%=user.username || user.displayName%>)</div>
+                                       <a class="mt-1 fw-bold d-flex text-bold align-items-center text-gray-400 text-hover-primary mb-2"><i class="fa fa-fingerprint" style="margin-right:5px"></i> <%=user.id%></a>
+                                       <!--<a class="fw-bold d-flex text-bold align-items-center text-gray-400 text-hover-primary mb-2"><i class="fa fa-browser" style="margin-right:5px"></i> <%=ly.fetch(`account.${user.id}.website`)%></a>-->
+                                       <a class="fw-bold d-flex text-bold align-items-center text-gray-400 text-hover-primary mb-2"><i class="fa fa-at" style="margin-right:5px"></i> <%=user.email || user.emails[0].value || "@"%></a>
+                                       <a class="fw-bold d-flex text-bold align-items-center text-gray-400 text-hover-primary mb-2"><i class="fa fa-ethernet" style="margin-right:5px"></i> Connect in as with <%=ly.fetch(`client.${user.id}`) || "Discord"%></a>
+                                    </div>
+                                 </div>
+                                 <div id="ob" class="ms-auto mb-7">
+                                 <a href="/api?s=beta" class="btn btn-secondary">Developer Tools</a>
+                                 <a href="/dashboard" class="btn btn-primary">Monitors (<%= (ly.fetch("linkler").filter(x => x.owner === user.id).length) || "0"%>)</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_info" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_basic_info" aria-expanded="true" aria-controls="kt_account_basic_info">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Edit Account</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_basic_info" class="collapse show">
+                           <form method="POST" action="/account">
+                              <div class="card-body border-top p-9">
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Full Name</label>
+                                    <div class="col-lg-8">
+                                       <div class="row">
+                                          <div class="col-lg-6 fv-row">
+                                          <% if(!ly.fetch(`account.${user.id}.name`)) { %>
+                                             <input autocomplete="off" type="text" name="name" id="name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="John"/>
+                                             <% } else {%>
+                                             <input autocomplete="off" type="text" name="name" id="name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="John" value="<%=ly.fetch(`account.${user.id}.name`)%>"/>
+                                             <% } %>
+                                          </div>
+                                          <div class="col-lg-6 fv-row">
+                                             <% if(!ly.fetch(`account.${user.id}.lname`)) { %>
+                                             <input autocomplete="off" type="text" name="lname" id="lname" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Doe (not public)"/>
+                                             <% } else {%>
+                                             <input autocomplete="off" type="text" name="lname" id="lname" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Doe (not public)" value="<%=ly.fetch(`account.${user.id}.lname`)%>"/>
+                                             <% } %>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Avatar</label>
+                                    <div class="col-lg-8 fv-row">
+                                    <div class="input-group">
+                                       <% if(!ly.fetch(`account.${user.id}.avatar`)) { %>
+                                       <input autocomplete="off" type="url" name="avatar" id="avatar" class="form-control form-control-lg form-control-solid" placeholder="https://i.imgur.com/123" />
+                                       <% } else {%>
+                                       <input autocomplete="off" type="url" name="avatar" id="avatar"class="form-control form-control-lg form-control-solid" placeholder="https://i.imgur.com/123" value="<%=ly.fetch(`account.${user.id}.avatar`)%>" />
+                                       <% } %>
+                                       <a onclick="window.location.href='/account/sync/avatar'" role="button" class="btn btn-secondary">Sync with <%=ly.fetch(`client.${user.id}`) || "Discord"%></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!--<div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Website</label>
+                                    <div class="col-lg-8 fv-row">
+                                       <% if(!ly.fetch(`account.${user.id}.website`)) { %>
+                                             <input autocomplete="off" type="url" name="website" id="website" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="https://eleven.codes"/>
+                                             <% } else {%>
+                                             <input autocomplete="off" type="url" name="website" id="website" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="https://eleven.codes" value="<%=ly.fetch(`account.${user.id}.website`)%>"/>
+                                             <% } %>
+                                    </div>
+                                 </div>-->
+                                 <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">
+                                    <span class="">Authorization Key</span>
+                                    </label>
+                                    <div class="col-lg-8 fv-row">
+                                       <input autocomplete="off" type="text" disabled="" class="form-control form-control-lg form-control-solid" placeholder="-error-" value="<%=ly.fetch(`account.${user.id}.authkey`) || "-error-"%>" />
+                                    </div>
+                                 </div>
+                                 <div class="row mb-0">
+                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Usage Datas</label>
+                                    <div class="col-lg-8 d-flex align-items-center">
+                                       <div class="form-check form-check-solid form-switch fv-row">
+                                          <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" checked="checked" disabled="" />
+                                          <label class="form-check-label" for="allowmarketing"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                 <button onclick="document.location.reload(true);" type="reset" class="btn btn-white btn-active-light-primary me-2">Discard</button>
+                                 <button type="submit" class="btn btn-primary" id="kt_account_basic_info_submit">Save Changes</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     <div class="card mb-5 mb-xl-10" id="kt_account_settings_connected" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_connected_accounts" aria-expanded="true" aria-controls="kt_account_connected_accounts">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Connected Accounts</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_connected_accounts" class="collapse show">
+                           <div class="card-body border-top p-9">
+                           <%if((user.verified || user._json.email_verified) === false) {%>
+                              <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+                                 <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                       <path d="M18.5,8 C17.1192881,8 16,6.88071187 16,5.5 C16,4.11928813 17.1192881,3 18.5,3 C19.8807119,3 21,4.11928813 21,5.5 C21,6.88071187 19.8807119,8 18.5,8 Z M18.5,21 C17.1192881,21 16,19.8807119 16,18.5 C16,17.1192881 17.1192881,16 18.5,16 C19.8807119,16 21,17.1192881 21,18.5 C21,19.8807119 19.8807119,21 18.5,21 Z M5.5,21 C4.11928813,21 3,19.8807119 3,18.5 C3,17.1192881 4.11928813,16 5.5,16 C6.88071187,16 8,17.1192881 8,18.5 C8,19.8807119 6.88071187,21 5.5,21 Z" fill="#000000" opacity="0.3" />
+                                       <path d="M5.5,8 C4.11928813,8 3,6.88071187 3,5.5 C3,4.11928813 4.11928813,3 5.5,3 C6.88071187,3 8,4.11928813 8,5.5 C8,6.88071187 6.88071187,8 5.5,8 Z M11,4 L13,4 C13.5522847,4 14,4.44771525 14,5 C14,5.55228475 13.5522847,6 13,6 L11,6 C10.4477153,6 10,5.55228475 10,5 C10,4.44771525 10.4477153,4 11,4 Z M11,18 L13,18 C13.5522847,18 14,18.4477153 14,19 C14,19.5522847 13.5522847,20 13,20 L11,20 C10.4477153,20 10,19.5522847 10,19 C10,18.4477153 10.4477153,18 11,18 Z M5,10 C5.55228475,10 6,10.4477153 6,11 L6,13 C6,13.5522847 5.55228475,14 5,14 C4.44771525,14 4,13.5522847 4,13 L4,11 C4,10.4477153 4.44771525,10 5,10 Z M19,10 C19.5522847,10 20,10.4477153 20,11 L20,13 C20,13.5522847 19.5522847,14 19,14 C18.4477153,14 18,13.5522847 18,13 L18,11 C18,10.4477153 18.4477153,10 19,10 Z" fill="#000000" />
+                                    </svg>
+                                 </span>
+                                 <div class="d-flex flex-stack flex-grow-1">
+                                    <div class="fw-bold">
+                                       <div class="fs-6 text-gray-600">Mail verification adds an extra layer of security to your account. If you do not implement this process, your Account may be taken over by malicious users.
+                                       <% if(ly.fetch(`client.${user.id}`) === "Discord") {%>
+                                          <a href="javascript:void(0)" onclick="window.open('https://support.discord.com/hc/en-us/articles/213219267-Resending-Verification-Email')">Learn More</a>
+                                          <% } else {%>
+                                          <a href="javascript:void(0)" onclick="window.open('https://support.google.com/accounts/answer/63950?hl=tr')">Learn More</a>
+                                          <% } %>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <% } %>
+                              <% if(ly.fetch(`client.${user.id}`) === "Discord") {%>
+                              <div class="py-2">
+                                 <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                       <img style="object-fit: cover" draggable="false" src="https://preview.keenthemes.com/craft/assets/media/svg/brand-logos/google-icon.svg" class="w-30px me-6" alt="Google" />
+                                       <div class="d-flex flex-column">
+                                          <a class="fs-5 text-dark fw-boldest">Google</a>
+                                          <div class="fs-6 fw-bold text-gray-400">Connect with Google</div>
+                                       </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                       <div class="form-check form-check-solid form-switch">
+                                          <input onclick="location.href='/auth/google'" class="form-check-input w-45px h-30px" type="checkbox" id="googleswitch" />
+                                          <label onclick="location.href='/auth/google'" class="form-check-label" for="googleswitch"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="separator separator-dashed my-5"></div>
+                                 <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                       <img style="object-fit: cover" draggable="false" src="https://discord.com/assets/3437c10597c1526c3dbd98c737c2bcae.svg" class="w-30px me-6" alt="Discord" />
+                                       <div class="d-flex flex-column">
+                                          <a class="fs-5 text-dark fw-boldest">Discord <i style="color:#21afe3" class="fa fa-check"></i></a>
+                                          <div class="fs-6 fw-bold text-gray-400">Connect with Discord</div>
+                                       </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                       <div class="form-check form-check-solid form-switch">
+                                          <input onclick="location.href='/auth/discord'" class="form-check-input w-45px h-30px" type="checkbox" id="discordswitch" checked="checked" disabled=""/>
+                                          <label onclick="location.href='/auth/discord'" class="form-check-label" for="discordswitch"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <% } else { %>
+                              <div class="py-2">
+                                 <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                       <img style="object-fit: cover" draggable="false" src="https://preview.keenthemes.com/craft/assets/media/svg/brand-logos/google-icon.svg" class="w-30px me-6" alt="" />
+                                       <div class="d-flex flex-column">
+                                          <a class="fs-5 text-dark fw-boldest">Google <i style="color:#21afe3" class="fa fa-check"></i></a>
+                                          <div class="fs-6 fw-bold text-gray-400">Connect with Google</div>
+                                       </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                       <div class="form-check form-check-solid form-switch">
+                                          <input onclick="location.href='#'" class="form-check-input w-45px h-30px" type="checkbox" id="googleswitch" checked="checked" disabled="" />
+                                          <label onclick="location.href='#'" class="form-check-label" for="googleswitch"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="separator separator-dashed my-5"></div>
+                                 <div class="d-flex flex-stack">
+                                    <div class="d-flex">
+                                       <img style="object-fit: cover" draggable="false" src="https://discord.com/assets/3437c10597c1526c3dbd98c737c2bcae.svg" class="w-30px me-6" alt="" />
+                                       <div class="d-flex flex-column">
+                                          <a class="fs-5 text-dark fw-boldest">Discord</a>
+                                          <div class="fs-6 fw-bold text-gray-400">Connect with Discord</div>
+                                       </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                       <div class="form-check form-check-solid form-switch">
+                                          <input onclick="location.href='/auth/discord'" class="form-check-input w-45px h-30px" type="checkbox" id="discordswitch"/>
+                                          <label onclick="location.href='/auth/discord'" class="form-check-label" for="discordswitch"></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <% } %>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card" style="margin-bottom:35px" id="kt_account_settings_deactivates" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivates" aria-expanded="true" aria-controls="kt_account_deactivates">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Beta Mode</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_deactivates" class="collapse show">
+                           <form method="POST" action="/account/beta">
+                              <div class="card-body border-top p-9">
+                                 <div class="form-check form-check-solid fv-row">
+                                    <input name="checkbox" class="form-check-input" type="checkbox" value="" id="checkbox" required="" disabled="" checked="" />
+                                    <% if(ly.fetch(`beta.${user.id}.status`)) { %>
+                                    <label class="form-check-label fw-bold ps-2 fs-6" for="checkbox">Confirm Leave Beta</label>
+                                    <% } else {%>
+                                    <label class="form-check-label fw-bold ps-2 fs-6" for="checkbox">Confirm Join Beta</label>
+                                    <% } %>
+                                 </div>
+                              </div>
+                              <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <% if(ly.fetch(`beta.${user.id}.status`)) { %>
+                                    <button onclick="window.location.href='/account/beta'" type="submit" class="btn btn-danger fw-bold">Leave</button>
+                                    <% } else {%>
+                                    <button onclick="window.location.href='/account/beta'" type="submit" class="btn btn-success fw-bold">Join</button>
+                                    <% } %>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     <div class="card" id="kt_account_settings_deactivate" data-kt-scroll-offset="{default: 100, md: 125}">
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+                           <div class="card-title m-0">
+                              <h3 class="fw-boldest m-0">Delete Account Datas</h3>
+                           </div>
+                        </div>
+                        <div id="kt_account_deactivate" class="collapse show">
+                           <form>
+                              <div class="card-body border-top p-9">
+                                 <div class="form-check form-check-solid fv-row">
+                                    <input name="checkbox" class="form-check-input" type="checkbox" value="" id="checkbox" required="" disabled="" checked="" />
+                                    <label class="form-check-label fw-bold ps-2 fs-6" for="checkbox">Confirm Delete Account Datas</label>
+                                 </div>
+                              </div>
+                              <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                 <button onclick="window.location.href='/account/datas/delete'" type="submit" class="btn btn-danger fw-bold">Delete</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <br>
+   </body>
+</html>
