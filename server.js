@@ -15,7 +15,7 @@ const helmet = require("helmet");
 client.login("BOT_TOKEN");
 let admin = ["USER_ID 1", "USER_ID 2", "USER_ID 3"];
 let blacklist = ["USER_ID 1"];
-let prefix = "!"
+let prefix = "PREFIX"
 let log_channel_id = "CHANNEL_ID"
 let server_id = "SERVER_ID"
 let discord_client_secret = "DISCORD_CLIENT_SECRET"
