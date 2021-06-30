@@ -16,6 +16,7 @@ client.login("BOT_TOKEN");
 let admin = ["USER_ID 1", "USER_ID 2", "USER_ID 3"];
 let blacklist = ["USER_ID 1"];
 let prefix = "PREFIX"
+let discord_server_invite = "DISCORD_SERVER_INVITE"
 let log_channel_id = "CHANNEL_ID"
 let server_id = "SERVER_ID"
 let discord_client_secret = "DISCORD_CLIENT_SECRET"
@@ -460,7 +461,7 @@ client.on("ready", () => {
         renderTemplate(res, req, "unsuccess.ejs");
     });
     app.get('/discord', function(req, res) {
-        res.redirect('https://discord.gg/WnbkzfMQRv')
+        res.redirect(discord_server_invite)
     });
     app.get("/dashboard", checkAuth, (req, res) => {
         renderTemplate(res, req, "dashboard.ejs");
