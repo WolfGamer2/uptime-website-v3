@@ -1,6 +1,6 @@
 # Uptime Website v3
 ### Contact
-* [Discord](https://discord.gg/T4BMtSu)
+<div align="center"> <a href="https://discord.gg/P578T3aYbj"><img src="http://invidget.switchblade.xyz/P578T3aYbj"/></a>
 
 ### Creators / Developers
 👤 Eleven
